@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+  background: #0a0e1a;
+  color: #e8ecf4;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#canvas3d {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ---------- 顶部导航 ---------- */
+#tabbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: linear-gradient(180deg, rgba(10, 14, 26, 0.92), rgba(10, 14, 26, 0.55) 80%, transparent);
+  z-index: 10;
+  flex-wrap: wrap;
+}
+
+#tabbar .brand {
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 16px;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #6ee7ff, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  user-select: none;
+}
+
+.tab {
+  appearance: none;
+  border: 1px solid rgba(120, 160, 255, 0.25);
+  background: rgba(30, 42, 70, 0.6);
+  color: #c8d4ec;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
+}
+
+.tab:hover {
+  background: rgba(60, 84, 140, 0.7);
+  border-color: rgba(140, 180, 255, 0.5);
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 2px 14px rgba(96, 130, 255, 0.45);
+}
+
+/* ---------- 信息面板 ---------- */
+#infopanel {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  width: min(400px, calc(100vw - 32px));
+  max-height: 46vh;
+  overflow-y: auto;
+  background: rgba(16, 22, 40, 0.85);
+  border: 1px solid rgba(120, 160, 255, 0.22);
+  border-radius: 14px;
+  padding: 16px 18px;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 160, 255, 0.4) transparent;
+}
+
+#infopanel h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #8ecbff;
+}
+
+#info-body {
+  font-size: 13px;
+  line-height: 1.75;
+  color: #c3cde2;
+}
+
+#info-body p { margin-bottom: 6px; }
+
+#info-body b { color: #ffd479; font-weight: 600; }
+
+#info-body .tag {
+  display: inline-block;
+  padding: 1px 8px;
+  margin: 1px 2px;
+  border-radius: 10px;
+  font-size: 12px;
+  background: rgba(80, 120, 220, 0.25);
+  border: 1px solid rgba(120, 160, 255, 0.3);
+  color: #9fc3ff;
+}
+
+/* ---------- 操作按钮 ---------- */
+#actions {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+  align-items: flex-end;
+}
+
+#actions button {
+  appearance: none;
+  border: 1px solid rgba(110, 231, 255, 0.35);
+  background: rgba(14, 40, 60, 0.8);
+  color: #9be8ff;
+  font-size: 14px;
+  font-family: inherit;
+  padding: 9px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  backdrop-filter: blur(8px);
+  min-width: 150px;
+  text-align: left;
+}
+
+#actions button:hover:not(:disabled) {
+  background: rgba(20, 70, 100, 0.9);
+  border-color: rgba(110, 231, 255, 0.7);
+  transform: translateX(-3px);
+}
+
+#actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---------- 状态条 ---------- */
+#status {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 22px;
+  border-radius: 20px;
+  background: rgba(20, 30, 55, 0.85);
+  border: 1px solid rgba(255, 212, 121, 0.4);
+  color: #ffd479;
+  font-size: 14px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  max-width: 80vw;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+#status.show { opacity: 1; }
+
+/* ---------- 操作提示 ---------- */
+#hint {
+  position: absolute;
+  right: 16px;
+  top: 64px;
+  font-size: 12px;
+  color: rgba(160, 180, 215, 0.65);
+  z-index: 5;
+  user-select: none;
+}
+
+@media (max-width: 700px) {
+  #infopanel { max-height: 34vh; font-size: 12px; }
+  #hint { display: none; }
+}

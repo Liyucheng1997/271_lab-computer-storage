@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算机存储技术 3D 原理展示</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./node_modules/three/build/three.module.js",
+        "three/addons/": "./node_modules/three/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <canvas id="canvas3d"></canvas>
+
+    <!-- 顶部导航 -->
+    <nav id="tabbar">
+      <div class="brand">💾 计算机存储技术原理</div>
+      <button class="tab active" data-scene="hierarchy">🏛️ 存储层级</button>
+      <button class="tab" data-scene="dram">🧠 内存 (DRAM)</button>
+      <button class="tab" data-scene="ssd">⚡ 固态硬盘 (SSD)</button>
+      <button class="tab" data-scene="hdd">💿 机械硬盘 (HDD)</button>
+    </nav>
+
+    <!-- 左下角信息面板 -->
+    <aside id="infopanel">
+      <h2 id="info-title"></h2>
+      <div id="info-body"></div>
+    </aside>
+
+    <!-- 右下角操作按钮区 -->
+    <div id="actions"></div>
+
+    <!-- 状态提示条 -->
+    <div id="status"></div>
+
+    <div id="hint">🖱️ 左键拖动旋转 · 滚轮缩放 · 右键平移</div>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

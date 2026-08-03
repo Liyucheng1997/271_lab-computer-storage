@@ -1,0 +1,12 @@
+{
+  "name": "computer-storage-3d",
+  "version": "1.0.0",
+  "description": "计算机存储技术 3D 原理展示 (内存 / SSD / HDD)",
+  "private": true,
+  "scripts": {
+    "start": "npx --yes http-server -p 8137 -c-1"
+  },
+  "dependencies": {
+    "three": "^0.185.1"
+  }
+}
