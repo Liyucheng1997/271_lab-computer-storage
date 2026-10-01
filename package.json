@@ -1,6 +1,6 @@
 {
   "name": "computer-storage-3d",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "计算机存储技术 3D 原理展示 (内存 / SSD / HDD)",
   "private": true,
   "scripts": {

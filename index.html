@@ -17,6 +17,7 @@
 <body>
   <div id="app">
     <canvas id="canvas3d"></canvas>
+    <div id="labels"></div>
 
     <!-- 顶部导航 -->
     <nav id="tabbar">
@@ -26,6 +27,18 @@
       <button class="tab" data-scene="ssd">⚡ 固态硬盘 (SSD)</button>
       <button class="tab" data-scene="hdd">💿 机械硬盘 (HDD)</button>
     </nav>
+
+    <!-- 视角切换 -->
+    <div id="views"></div>
+
+    <!-- 右上角实时数据面板 -->
+    <aside id="hud"></aside>
+
+    <!-- 示波器 -->
+    <div id="scope">
+      <div class="scope-title"></div>
+      <canvas width="320" height="120"></canvas>
+    </div>
 
     <!-- 左下角信息面板 -->
     <aside id="infopanel">
@@ -39,7 +52,12 @@
     <!-- 状态提示条 -->
     <div id="status"></div>
 
-    <div id="hint">🖱️ 左键拖动旋转 · 滚轮缩放 · 右键平移</div>
+    <div id="toolbar">
+      <button id="btn-labels" title="显示/隐藏标注">🏷️ 标注</button>
+      <span id="hint">左键旋转 · 滚轮缩放 · 右键平移</span>
+    </div>
+
+    <div id="loading"><div class="spinner"></div><span>正在构建 3D 模型…</span></div>
   </div>
   <script type="module" src="js/main.js"></script>
 </body>
